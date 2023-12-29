@@ -17,6 +17,25 @@ public class LinkedList <I extends Comparable<I>>{
         curr.setNext(n);
     }
 
+    public void remove(I element){
+
+        if(head ==null){
+            return ;
+        }
+        if(head.getData().equals(element)){
+            head=head.getNext();
+        }
+        else{
+            Node<? extends Comparable<I>> curr=head;
+            while(curr!=null && !curr.getData().equals(element)){
+                curr=curr.getNext();
+            }
+            if(curr!=null){
+                curr.setNext(curr.getNext());
+            }
+        }
+    }
+
     public Node<? extends Comparable<I>> getHead() {
         return head;
     }
